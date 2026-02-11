@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --color-bg: #f5f7fa;
+  --color-bg-alt: #e4e7ec;
+  --color-surface: #ffffff;
+  --color-border: #e4e7ec;
+  --color-primary: #0b1f3a;
+  --color-primary-light: #1e3a5f;
+  --color-accent: #174ea6;
+  --color-accent-soft: #eff6ff;
+  --color-text: #1a1a1a;
+  --color-text-muted: #555555;
+  
+  /* Specific Color Variables */
+  --primary-heading-color: #0b1f3a;   /* For ALL h1 */
+  --secondary-heading-color: #1e3a5f; /* For ALL h2 */
+  --tertiary-heading-color: #174ea6;  /* For ALL h3 */
+  --subtitle-color: #555555;          /* For subtitle text */
+  --body-text-color: #1a1a1a;
+  
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+  --color-bg: #0b1f3a;
+  --color-bg-alt: #1e3a5f;
+  --color-surface: #1e3a5f;
+  --color-border: #2d3748;
+  --color-primary: #f5f7fa;
+  --color-primary-light: #e4e7ec;
+  --color-accent: #3b82f6;
+  --color-accent-soft: #1e3a5f;
+  --color-text: #e4e7ec;
+  --color-text-muted: #a0aec0;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 3.5vw, 2.75rem);
+  color: var(--primary-heading-color);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  color: var(--secondary-heading-color);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  color: var(--tertiary-heading-color);
+  font-weight: 600;
+}
+
+.subtitle {
+  color: var(--subtitle-color);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+p {
+  margin: 0;
+  color: var(--body-text-color);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  filter: brightness(1.2);
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: var(--transition);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: var(--radius-md);
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 1000;
+  color: var(--color-text);
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle svg {
+  transition: var(--transition);
+}
+
+/* Smooth theme transition */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

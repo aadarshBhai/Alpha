@@ -1,0 +1,30 @@
+{
+  "name": "The ALPHA CLASSES",
+  "tagline": "Focused coaching for school and competitive success.",
+  "mission": "To provide disciplined, concept-driven coaching that helps students from Bihar build a strong foundation in Mathematics and Science and succeed in board as well as competitive examinations.",
+  "admissionOpenText": "Admissions Open for Academic Session 2025-26",
+  "branches": [
+    {
+      "name": "Bad Road Godari",
+      "addressLine": "Bad Road, Godari",
+      "city": "Rohtas",
+      "state": "Bihar",
+      "pin": "821311"
+    },
+    {
+      "name": "Itimha",
+      "addressLine": "Itimha",
+      "city": "Rohtas",
+      "state": "Bihar",
+      "pin": "821311"
+    }
+  ],
+  "phoneNumbers": ["9801537980", "6204471661"],
+  "email": "info@thealphaclasses.in",
+  "youtube": "https://youtube.com/@thealphaclasses?si=6dPh6cGUwDJN2zp4",
+  "social": {
+    "facebook": "https://facebook.com",
+    "instagram": "https://instagram.com",
+    "youtube": "https://youtube.com/@thealphaclasses?si=6dPh6cGUwDJN2zp4"
+  }
+}

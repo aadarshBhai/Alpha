@@ -1,0 +1,23 @@
+[
+  {
+    "id": "t1",
+    "name": "Priya Singh",
+    "course": "Class 10 Foundation Batch",
+    "message": "The ALPHA CLASSES helped me understand Mathematics in a very simple and clear way. Regular tests and feedback improved my confidence before boards.",
+    "year": "2024"
+  },
+  {
+    "id": "t2",
+    "name": "Aman Kumar",
+    "course": "Class 12 Science",
+    "message": "Concept-wise teaching and regular doubt sessions made a big difference. I could revise the whole syllabus in time with proper guidance.",
+    "year": "2023"
+  },
+  {
+    "id": "t3",
+    "name": "Neha Gupta",
+    "course": "Competitive Support",
+    "message": "The institute focuses on basics first and then moves to higher level problems. This helped me not to fear difficult questions.",
+    "year": "2024"
+  }
+]

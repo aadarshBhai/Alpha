@@ -1,0 +1,32 @@
+[
+  {
+    "id": "cls-8-10",
+    "title": "Class 8 – 10 (Foundation Batch)",
+    "description": "Strong foundation in Mathematics and Science with regular tests, assignments and doubt sessions.",
+    "highlights": [
+      "NCERT-focused teaching",
+      "Weekly chapter tests",
+      "Concept revision sheets"
+    ]
+  },
+  {
+    "id": "cls-11-12-sci",
+    "title": "Class 11 – 12 (Science)",
+    "description": "Focused coaching for Physics, Chemistry and Mathematics with exam-oriented practice.",
+    "highlights": [
+      "Topic-wise notes",
+      "Numerical problem practice",
+      "Board + competitive orientation"
+    ]
+  },
+  {
+    "id": "competitive",
+    "title": "Competitive Exam Support",
+    "description": "Early guidance for competitive exams with emphasis on problem solving and time management.",
+    "highlights": [
+      "Objective pattern practice",
+      "Speed and accuracy improvement",
+      "Doubt-clearing clinics"
+    ]
+  }
+]
