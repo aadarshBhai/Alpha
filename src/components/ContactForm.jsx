@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { getSiteInfo } from '../data';
+import { useTranslation } from '../contexts/LanguageContext';
 
 const initialState = {
   name: '',
@@ -8,6 +9,7 @@ const initialState = {
 };
 
 const ContactForm = () => {
+  const { t } = useTranslation();
   const [values, setValues] = useState(initialState);
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState(null);
@@ -22,13 +24,13 @@ const ContactForm = () => {
 
   const validate = () => {
     const newErrors = {};
-    if (!values.name.trim()) newErrors.name = 'Name is required.';
+    if (!values.name.trim()) newErrors.name = t('nameRequired');
     if (!values.phone.trim()) {
-      newErrors.phone = 'Phone number is required.';
+      newErrors.phone = t('phoneRequired');
     } else if (!/^[0-9]{10}$/.test(values.phone.trim())) {
-      newErrors.phone = 'Enter a 10-digit mobile number.';
+      newErrors.phone = t('phoneInvalid');
     }
-    if (!values.message.trim()) newErrors.message = 'Message is required.';
+    if (!values.message.trim()) newErrors.message = t('messageRequired');
     return newErrors;
   };
 
@@ -40,7 +42,7 @@ const ContactForm = () => {
       setStatus(null);
       return;
     }
-    setStatus('Thank you for contacting us. We will reach out soon.');
+    setStatus(t('thankYouMessage'));
     setValues(initialState);
   };
 
@@ -49,55 +51,55 @@ const ContactForm = () => {
       <form className="contact-form" onSubmit={handleSubmit} noValidate>
         <div className="form-row">
           <div className="form-field">
-            <label htmlFor="name">Name *</label>
+            <label htmlFor="name">{t('name')} *</label>
             <input
               id="name"
               name="name"
               value={values.name}
               onChange={handleChange}
               autoComplete="name"
-              placeholder="Your Name"
+              placeholder={t('yourName')}
             />
             {errors.name && <span className="field-error">{errors.name}</span>}
           </div>
           <div className="form-field">
-            <label htmlFor="phone">Phone *</label>
+            <label htmlFor="phone">{t('phone')} *</label>
             <input
               id="phone"
               name="phone"
               value={values.phone}
               onChange={handleChange}
               autoComplete="tel"
-              placeholder="Your Phone Number"
+              placeholder={t('yourPhone')}
             />
             {errors.phone && <span className="field-error">{errors.phone}</span>}
           </div>
         </div>
         <div className="form-field">
-          <label htmlFor="message">Message *</label>
+          <label htmlFor="message">{t('message')} *</label>
           <textarea
             id="message"
             name="message"
             rows="3"
             value={values.message}
             onChange={handleChange}
-            placeholder="Your Message"
+            placeholder={t('yourMessage')}
           />
           {errors.message && <span className="field-error">{errors.message}</span>}
         </div>
         <button type="submit" className="btn btn-primary">
-          Send Message
+          {t('sendMessage')}
         </button>
         {status && <p className="form-status">{status}</p>}
       </form>
 
       <div className="contact-details">
         <div className="contact-info-block">
-          <h4>Email</h4>
+          <h4>{t('emailLabel')}</h4>
           <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
         </div>
         <div className="contact-info-block">
-          <h4>Call</h4>
+          <h4>{t('callLabel')}</h4>
           <p>
             {site.phoneNumbers.map((p, idx) => (
               <span key={p}>

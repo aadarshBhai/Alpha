@@ -1,21 +1,23 @@
 import React from 'react';
 import Section from '../components/Section';
 import ContactForm from '../components/ContactForm';
+import { useTranslation } from '../contexts/LanguageContext';
 
 const Contact = () => {
+  const { t } = useTranslation();
   return (
     <>
       <Section
         id="contact"
-        title="Contact Us"
-        subtitle="Reach out for admissions, batch details or counselling."
+        title={t('contactUs')}
+        subtitle={t('contactSubtitle')}
       >
         <ContactForm />
       </Section>
 
       <Section background="muted">
         <div className="map-wrapper">
-          <h3 className="section-subtitle">Institute Location (Sample)</h3>
+          <h3 className="section-subtitle">{t('instituteLocation')}</h3>
           <div className="map-embed">
             <iframe
               title="The ALPHA CLASSES location"
@@ -27,7 +29,7 @@ const Contact = () => {
             />
           </div>
           <p className="map-note">
-            Map location is indicative. Update with the exact location of your branches.
+            {t('mapNote')}
           </p>
         </div>
       </Section>

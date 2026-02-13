@@ -1,10 +1,12 @@
 import React from 'react';
 import Section from '../components/Section';
 import { getSiteInfo, getCourses, getTestimonials, getFounder } from '../data';
+import { useTranslation } from '../contexts/LanguageContext';
 import CourseCard from '../components/CourseCard';
 import TestimonialCard from '../components/TestimonialCard';
 
 const Home = () => {
+  const { t } = useTranslation();
   const site = getSiteInfo();
   const founder = getFounder();
   const courses = getCourses().slice(0, 2);
@@ -15,14 +17,14 @@ const Home = () => {
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-content">
-            <span className="hero-badge">Admissions Open 2026</span>
+            <span className="hero-badge">{t('admissionsOpen')}</span>
             <h1 className="hero-title">{site.name}</h1>
-            <p className="hero-tagline">{site.tagline}</p>
-            <p className="hero-mission">{site.mission}</p>
+            <p className="hero-tagline">{t('tagline')}</p>
+            <p className="hero-mission">{t('missionText')}</p>
 
             <div className="hero-contact">
               <div>
-                <h4>Contact Now</h4>
+                <h4>{t('contact')}</h4>
                 <p>
                   {site.phoneNumbers.map((p, idx) => (
                     <a key={p} href={`tel:${p}`} className="phone-link">
@@ -32,7 +34,7 @@ const Home = () => {
                 </p>
               </div>
               <div>
-                <h4>Follow On</h4>
+                <h4>{t('followUs')}</h4>
                 <div className="footer-social" style={{ marginTop: '0.5rem' }}>
                   <a href={site.social.youtube} className="social-link" style={{ background: 'var(--color-bg-alt)', color: 'var(--color-primary)' }} target="_blank" rel="noreferrer" title="YouTube">
                     <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
@@ -48,7 +50,7 @@ const Home = () => {
             </div>
 
             <div className="hero-branches">
-              <h4>Our Branches</h4>
+              <h4>{t('ourBranches')}</h4>
               <ul>
                 {site.branches.map((branch) => (
                   <li key={branch.name}>
@@ -65,8 +67,8 @@ const Home = () => {
             </div>
             <div className="hero-founder-text">
               <h3>{founder.name}</h3>
-              <p>{founder.title}</p>
-              <p className="hero-founder-intro">{founder.intro}</p>
+              <p>{t('founderTitle')}</p>
+              <p className="hero-founder-intro">{t('founderIntro')}</p>
             </div>
           </div>
         </div>
@@ -74,45 +76,44 @@ const Home = () => {
 
       <Section
         id="admissions"
-        title={site.admissionOpenText}
-        subtitle="Experience excellence with our structured curriculum and focused batch sizes."
+        title={t('admissionOpenText')}
+        subtitle={t('admissionSubtitle')}
         background="muted"
       >
         <div className="admission-note">
           <p style={{ fontSize: '1.25rem', color: 'var(--color-primary)', fontWeight: '500', marginBottom: '1.5rem' }}>
-            Transforming aspiration into achievement.
+            {t('admissionNote1')}
           </p>
           <p>
-            Visit our <strong>Bad Road Godari</strong> or <strong>Itimha</strong> branches to learn about our batch timings,
-            tailored subject modules, and fee structures. Early admissions receive priority for batch selection.
+            {t('admissionNote2')}
           </p>
           <div style={{ marginTop: '2.5rem' }}>
-            <a href="/contact" className="btn btn-primary">Enquire Now →</a>
+            <a href="/contact" className="btn btn-primary">{t('enquireNow')}</a>
           </div>
         </div>
       </Section>
 
       <Section
         id="mission-vision"
-        title="Our Mission"
-        subtitle="Building strong academic foundations through disciplined coaching and personalized attention."
+        title={t('missionVisionTitle')}
+        subtitle={t('missionVisionSubtitle')}
       >
         <div className="mission-vision-grid">
           <div className="card mission-card">
-            <h3>Our Mission</h3>
-            <p>To provide disciplined, concept-driven coaching that helps students from Bihar build a strong foundation in Mathematics and Science and succeed in board as well as competitive examinations.</p>
+            <h3>{t('missionTitle')}</h3>
+            <p>{t('missionDesc')}</p>
           </div>
           <div className="card vision-card">
-            <h3>Our Vision</h3>
-            <p>To build a strong academic foundation for students of Bihar through disciplined coaching, personalised attention, and exam-focused practice.</p>
+            <h3>{t('visionTitle')}</h3>
+            <p>{t('visionDesc')}</p>
           </div>
         </div>
       </Section>
 
       <Section
         id="home-courses"
-        title="Key Programs"
-        subtitle="Expert coaching for Class 6th to 12th and specialized competitive exam preparation."
+        title={t('keyPrograms')}
+        subtitle={t('keyProgramsSubtitle')}
       >
         <div className="grid-2">
           {courses.map((course) => (
@@ -120,14 +121,14 @@ const Home = () => {
           ))}
         </div>
         <div style={{ textAlign: 'center', marginTop: '4rem' }}>
-          <a href="/courses" className="nav-link nav-link-primary">Explore All Courses</a>
+          <a href="/courses" className="nav-link nav-link-primary">{t('exploreAllCourses')}</a>
         </div>
       </Section>
 
       <Section
         id="home-testimonials"
-        title="Student Success"
-        subtitle="Join hundreds of successful students who have excelled with ALPHA CLASSES."
+        title={t('studentSuccess')}
+        subtitle={t('studentSuccessSubtitle')}
         background="muted"
       >
         <div className="grid-2">

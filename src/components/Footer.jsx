@@ -1,19 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { getSiteInfo } from '../data';
+import { useTranslation } from '../contexts/LanguageContext';
 
 const Footer = () => {
   const site = getSiteInfo();
+  const { t } = useTranslation();
 
   return (
     <footer className="footer">
       <div className="container footer-grid">
         <div>
           <h4 className="footer-heading">{site.name}</h4>
-          <p className="footer-text">{site.mission}</p>
+          <p className="footer-text">{t('missionFull')}</p>
         </div>
         <div>
-          <h5 className="footer-subheading">Branches</h5>
+          <h5 className="footer-subheading">{t('branches')}</h5>
           <ul className="footer-list">
             {site.branches.map((branch) => (
               <li key={branch.name}>
@@ -25,10 +27,10 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <h5 className="footer-subheading">Contact</h5>
-          <p className="footer-text">Email: {site.email}</p>
+          <h5 className="footer-subheading">{t('contact')}</h5>
+          <p className="footer-text">{t('emailLabel')}: {site.email}</p>
           <p className="footer-text">
-            Phone:{' '}
+            {t('phone')}:{' '}
             {site.phoneNumbers.map((p, idx) => (
               <span key={p}>
                 {p}
@@ -36,7 +38,7 @@ const Footer = () => {
               </span>
             ))}
           </p>
-          <h5 className="footer-subheading">Connect With Us</h5>
+          <h5 className="footer-subheading">{t('connectWithUs')}</h5>
           <div className="footer-social">
             <a href={site.social.youtube} className="social-link" target="_blank" rel="noreferrer" title="YouTube">
               <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" /></svg>
@@ -50,20 +52,20 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-links">
-          <h5 className="footer-subheading">Quick Links</h5>
+          <h5 className="footer-subheading">{t('quickLinks')}</h5>
           <Link to="/courses" className="footer-link">
-            Courses
+            {t('coursesLink')}
           </Link>
           <Link to="/testimonials" className="footer-link">
-            Testimonials
+            {t('testimonialsLink')}
           </Link>
           <Link to="/contact" className="footer-link">
-            Contact
+            {t('contactLink')}
           </Link>
         </div>
       </div>
       <div className="footer-bottom">
-        <small>© {new Date().getFullYear()} {site.name}. All rights reserved.</small>
+        <small>© {new Date().getFullYear()} {site.name}. {t('allRightsReserved')}.</small>
       </div>
     </footer>
   );
