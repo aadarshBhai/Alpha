@@ -28,6 +28,7 @@ function htmlContentType() {
 }
 
 export default defineConfig({
+  base: process.env.BASE_PATH || '/Alpha/',
   plugins: [htmlContentType(), react()],
   server: {
     port: 5173,
