@@ -8,6 +8,18 @@
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      (function() {
+        var isVite = (window.location.port === '5173' || window.location.port === '5174') && window.location.hostname === 'localhost';
+        if (isVite) {
+          var s = document.createElement('script');
+          s.type = 'module';
+          s.src = '/src/main.jsx';
+          document.body.appendChild(s);
+        } else {
+          document.getElementById('root').innerHTML = '<p style="padding:2rem;font-family:system-ui;max-width:32rem;margin:2rem auto;text-align:center;line-height:1.6;">If you see this, the app was not started with Vite.<br><br>In the project folder run: <strong>npm start</strong><br>Then open <a href="http://localhost:5173">http://localhost:5173</a></p>';
+        }
+      })();
+    </script>
   </body>
 </html>
