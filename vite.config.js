@@ -27,8 +27,11 @@ function htmlContentType() {
   };
 }
 
+// GitHub Pages: set BASE_PATH='/Alpha/' in the deploy workflow. Netlify / local: leave unset for base '/'.
+const base = process.env.BASE_PATH ?? '/';
+
 export default defineConfig({
-  base: process.env.BASE_PATH || '/Alpha/',
+  base,
   plugins: [htmlContentType(), react()],
   server: {
     port: 5173,
